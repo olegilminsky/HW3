@@ -53,7 +53,7 @@ public class HW3_Ilminsky {
 
         Random random = new Random();
         int hiddenNumber = random.nextInt(10);
-        System.out.println(hiddenNumber);
+//        System.out.println(hiddenNumber);
         int numberPlayers = -1;
         Scanner scNumber = new Scanner(System.in);
 
