@@ -28,9 +28,9 @@ public class HW3_Ilminsky {
 
                 numberGame = scSelectGame.nextInt();
 
-                if (numberGame == 0){
+                if (numberGame == 0) {
                     break;
-                }else if (numberGame == 1) {
+                } else if (numberGame == 1) {
                     startGuessNumber();
                 } else if (numberGame == 2) {
                     startGuessWord();
@@ -68,12 +68,15 @@ public class HW3_Ilminsky {
                 }
             } while (!isValidNumber(numberPlayers));
 //           scNumber.close();
-
+            if (numberPlayers == hiddenNumber) {
+                System.out.println(ANSI_GREEN + "Вы угадали!!!" + ANSI_RESET);
+                break;
+            } else if (i == 2) {
+                System.out.println("Вам не удалось угадать число.");
+                break;
+            }
             if (i != 2) {
-                if (numberPlayers == hiddenNumber) {
-                    System.out.println(ANSI_GREEN + "Вы угадали" + ANSI_RESET);
-                    break;
-                } else if (numberPlayers < hiddenNumber) {
+                if (numberPlayers < hiddenNumber) {
                     System.out.println(ANSI_YELLOW + "Загаданное число больше." + ANSI_RESET);
                 } else {
                     System.out.println(ANSI_YELLOW + "Загаданное число меньше." + ANSI_RESET);
@@ -81,7 +84,9 @@ public class HW3_Ilminsky {
             }
             numberPlayers = -1;
         }
+
         selectGame();
+
     }
 
     private static boolean isValidNumber(int number) {
@@ -89,6 +94,13 @@ public class HW3_Ilminsky {
     }
 
     private static void startGuessWord() {
-        System.out.println("Начинаем игру " + ANSI_YELLOW + "\"Угадай слово!\"" + ANSI_RESET);
+//        System.out.println("Начинаем игру " + ANSI_YELLOW + "\"Угадай слово!\"" + ANSI_RESET);
+        System.out.println("На текущий момент игра находится на этапе разработки.");
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        selectGame();
     }
 }
